@@ -77,9 +77,11 @@ int fermat_test(mpz_t p, int rounds) {
     get_random_number(a, p);
     bignum_mod_binpow(a, exp, p, pow);
     if (mpz_cmp_ui(pow, 1) != 0) {
+      mpz_clears(a, exp, pow, NULL);
       return 0;
     }
   }
+  mpz_clears(a, exp, pow, NULL);
   return 1;
 }
 
@@ -96,6 +98,7 @@ void gcd(mpz_t res, mpz_t a, mpz_t b) {
   mpz_mod(mod, a, b);
   if (mpz_cmp_ui(mod, 0) == 0) {
     mpz_set(res, b);
+    mpz_clear(mod);
     return;
   }
   return gcd(res, b, mod);
