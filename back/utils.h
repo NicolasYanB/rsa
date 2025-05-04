@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <stdio.h>
 #include <gmp.h>
 
 void get_random_number(mpz_t out, mpz_t a) {
@@ -26,7 +27,7 @@ void get_random_number(mpz_t out, mpz_t a) {
   mpz_clear(cmp);
 }
 
-void bignum_mod_binpow(mpz_t a, mpz_t b, mpz_t m, mpz_t res) {
+void binpow_mod(mpz_t a, mpz_t b, mpz_t m, mpz_t res) {
   /**
    * Algorítmo de exponenciação modular rápida
    * Parâmetros:
@@ -38,18 +39,20 @@ void bignum_mod_binpow(mpz_t a, mpz_t b, mpz_t m, mpz_t res) {
    *  a^b mod m
    */
   mpz_t odd;
+  mpz_t b_; // copia de b
+  mpz_init_set(b_, b);
   mpz_init(odd);
-  mpz_init_set_ui(res, 1);
+  mpz_set_ui(res, 1);
   mpz_mod(a, a, m);
-  while(mpz_cmp_ui(b, 0) > 0) {
-    mpz_mod_ui(odd, b, 2);
+  while(mpz_cmp_ui(b_, 0) > 0) {
+    mpz_mod_ui(odd, b_, 2);
     if (mpz_cmp_ui(odd, 0) != 0) {
       mpz_mul(res, res, a);
       mpz_mod(res, res, m);
     }
     mpz_mul(a, a, a);
     mpz_mod(a, a, m);
-    mpz_div_ui(b, b, 2);
+    mpz_div_ui(b_, b_, 2);
   }
   mpz_clear(odd);
 }
@@ -75,7 +78,7 @@ int fermat_test(mpz_t p, int rounds) {
   mpz_sub_ui(exp, p, 1);
   for (int i = 0; i < rounds; i++) {
     get_random_number(a, p);
-    bignum_mod_binpow(a, exp, p, pow);
+    binpow_mod(a, exp, p, pow);
     if (mpz_cmp_ui(pow, 1) != 0) {
       mpz_clears(a, exp, pow, NULL);
       return 0;

@@ -1,7 +1,6 @@
 #ifndef KEY_H
 #define KEY_H
 
-#include <stdio.h>
 #include "utils.h"
 
 int generate_key(char str_p[], char str_q[], char str_e[]) {
@@ -21,8 +20,8 @@ int generate_key(char str_p[], char str_q[], char str_e[]) {
   }
   // verifica se e é coprimo com (p-1)(q-1)
   mpz_t p_, q_, pq_, g;
-  mpz_init(p_);
-  mpz_init(q_);
+  mpz_init(p_); // copia de p
+  mpz_init(q_); // copia de q
   mpz_sub_ui(p_, p, 1);
   mpz_sub_ui(q_, q, 1);
   mpz_mul(pq_, p_, q_);
