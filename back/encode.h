@@ -13,6 +13,10 @@ int encode(char text[], char str_n[], char str_e[], long long size) {
   mpz_init(c);
   mpz_init(enc);
   for (long long i = 0; i < size; i++) {
+    if (text[i] < 32 || text[i] > 126) {
+      fprintf(stderr, "Caractere '%c', na posição %ld não é permitido!", text[i], i);
+      return -1;
+    }
     mpz_set_ui(c, text[i]);
     binpow_mod(c, e, n, enc);
     mpz_out_str(f, 10, enc);
