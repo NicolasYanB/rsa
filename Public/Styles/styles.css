@@ -1,0 +1,438 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    background-image: url('../Assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(../Assets/Orbitron-VariableFont_wght.ttf) format(truetype);
+    font-style: normal;
+}
+
+.titulo {
+    position: fixed;
+    margin-left: 7%;
+    margin-top: 200px;
+    color: rgb(255, 255, 255);
+    font-family:'Orbitron';
+    font-weight: 400;
+    font-size: 7em;
+    text-shadow:
+        0 0 5px rgb(255, 255, 255),
+        0 0 10px rgb(225, 225, 225),
+        0 0 20px rgb(70, 202, 198),
+        0 0 40px rgb(26, 40, 102),
+        0 0 80px rgb(32, 1, 85);
+}
+
+.subtitulo {
+    position: fixed;
+    margin-left: 7%;
+    margin-top: 400px;
+    color: rgb(255, 255, 255);
+    font-family:'Orbitron';
+    font-weight: 400;
+    font-size: 7em;
+    text-shadow:
+        0 0 5px rgb(255, 255, 255),
+        0 0 10px rgb(225, 225, 225),
+        0 0 20px rgb(70, 202, 198),
+        0 0 40px rgb(26, 40, 102),
+        0 0 80px rgb(32, 1, 85);
+}
+
+/* Efeito de Welcome */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.welcome-message {
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 
+        0 0 10px rgba(70, 202, 198, 0.8),
+        0 0 20px rgba(26, 40, 102, 0.8);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.05); opacity: 1; }
+}
+
+body.loaded .welcome-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Estilo para o container do fantasma */
+        .ghost-container {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            z-index: 1000;
+            pointer-events: none; /* Permite clicar através do fantasma */
+            transition: transform 0.5s ease-out;
+        }
+
+        /* Estilo para a imagem do fantasma */
+        .ghost-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Animação de flutuação */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+/*Página de Chaves*/
+
+.crypto-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+    margin-top: 50px; /* Ajuste este valor conforme necessário */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h2 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.header p {
+    color: #7f8c8d;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.btn-submit {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: #2980b9;
+}
+
+.prime-icon {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/*Página de Encriptar*/
+
+.encrypt-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px; /* Um pouco mais largo para acomodar textos longos */
+    margin: 50px auto; /* Centraliza vertical e horizontalmente */
+}
+
+.output-group {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.output-label {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.output-text {
+    word-wrap: break-word;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+ /* Página de Desencriptar */
+
+ .decrypt-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.output-group {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.output-label {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.output-text {
+    word-wrap: break-word;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    min-height: 100px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+/*Configs do NavBar*/
+
+#mainNavbar {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Fundo transparente */
+    backdrop-filter: blur(8px) !important; /* Efeito de borrado */
+    -webkit-backdrop-filter: blur(8px) !important; /* Para compatibilidade com Safari */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+#mainNavbar .navbar-nav .nav-link {
+    color: white !important; /* Texto branco para os links */
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+}
+
+#mainNavbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+#mainNavbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+#mainNavbar #hideNavbarButton {
+    color: white !important;
+    border-color: white !important;
+}
+
+#mainNavbar #hideNavbarButton:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/*Página Sobre*/
+
+/* Estilos específicos para a página Sobre */
+.about-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    margin: 80px auto;
+}
+
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3498db;
+    margin-bottom: 15px;
+}
+
+.crypto-fact {
+    background-color: #f8f9fa;
+    border-left: 4px solid #e74c3c;
+    padding: 15px;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3498db;
+    border: 3px solid white;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #3498db;
+}
+
+/* Estilos para links na página Sobre */
+.about-card a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.about-card a:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .about-card {
+        padding: 20px;
+        margin: 40px auto;
+    }
+    
+    .member-photo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .about-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .team-member {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+/* Ajuste para telas médias */
+@media (max-width: 991px) and (min-width: 768px) {
+    .team-member {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 767px) {
+    .team-member {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}

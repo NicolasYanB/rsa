@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link rel="stylesheet" href="Styles/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="gerarchave.html">Chaves</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="encriptar.html">Encriptar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="desencriptar.html">Desencriptar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="saibamais.html">Sobre</a>
+              </li>
+            </ul>
+            <button class="btn btn-outline-secondary" id="hideNavbarButton">Esconder Navbar</button>
+          </div>
+        </div>
+      </nav>
+      
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar"></nav>
+
+    <!-- Nova seção para criptografia -->
+    <div class="encrypt-card">
+        <div class="header">
+            <h2>Criptografar Mensagem</h2>
+            <p>Insira a chave pública e o texto a ser criptografado</p>
+        </div>
+        
+        <form id="encryptForm">
+            <div class="input-group">
+                <label for="publicKey">Chave Pública:</label>
+                <input type="text" id="publicKey" name="publicKey" required placeholder="Cole a chave pública aqui">
+            </div>
+            
+            <div class="input-group">
+                <label for="plainText">Texto para Criptografar:</label>
+                <textarea id="plainText" name="plainText" rows="4" required placeholder="Digite o texto que deseja criptografar" class="form-control"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Criptografar</button>
+            
+            <div class="output-group">
+                <div class="output-label">Texto Criptografado:</div>
+                <div id="encryptedOutput" class="output-text">
+                    <!-- O resultado aparecerá aqui -->
+                    Nenhum resultado ainda. Clique em "Criptografar" para gerar.
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="Scripts/navbar.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

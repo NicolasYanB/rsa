@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link rel="stylesheet" href="Styles/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="gerarchave.html">Chaves</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="encriptar.html">Encriptar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="desencriptar.html">Desencriptar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="saibamais.html">Sobre</a>
+              </li>
+            </ul>
+            <button class="btn btn-outline-secondary" id="hideNavbarButton">Esconder Navbar</button>
+          </div>
+        </div>
+      </nav>
+      
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar"></nav>
+
+    <!-- Seção de Desencriptação -->
+    <div class="decrypt-card">
+        <div class="header">
+            <h2>Desencriptar Mensagem</h2>
+            <p>Insira os parâmetros e o texto criptografado</p>
+        </div>
+        
+        <form id="decryptForm">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="decrypt-p">Valor de <span class="prime-icon">p</span> (número primo):</label>
+                    <input type="number" id="decrypt-p" name="p" min="2" required placeholder="Digite p">
+                </div>
+                
+                <div class="input-group">
+                    <label for="decrypt-q">Valor de <span class="prime-icon">q</span> (número primo):</label>
+                    <input type="number" id="decrypt-q" name="q" min="2" required placeholder="Digite q">
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="decrypt-e">Valor de <span class="prime-icon">e</span> (expoente):</label>
+                <input type="number" id="decrypt-e" name="e" min="1" required placeholder="Digite e">
+            </div>
+            
+            <div class="input-group">
+                <label for="encryptedText">Texto Criptografado:</label>
+                <textarea id="encryptedText" name="encryptedText" rows="4" required 
+                          placeholder="Cole o texto criptografado aqui" class="form-control"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Desencriptar</button>
+            
+            <div class="output-group">
+                <div class="output-label">Texto Desencriptado:</div>
+                <div id="decryptedOutput" class="output-text">
+                    <!-- O resultado aparecerá aqui -->
+                    Nenhum resultado ainda. Clique em "Desencriptar" para processar.
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="Scripts/navbar.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link rel="stylesheet" href="Styles/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="gerarchave.html">Chaves</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="encriptar.html">Encriptar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="desencriptar.html">Desencriptar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="saibamais.html">Sobre</a>
+              </li>
+            </ul>
+            <button class="btn btn-outline-secondary" id="hideNavbarButton">Esconder Navbar</button>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="about-card">
+        <div class="about-section">
+            <h1 class="about-title">Sobre o RSA Encryptor</h1>
+            <p>Este é um projeto desenvolvido para demonstrar os princípios da criptografia RSA, um dos primeiros sistemas de criptografia de chave pública e amplamente utilizado para transmissão segura de dados.</p>
+            
+            <div class="crypto-fact">
+                <p>O algoritmo RSA foi descrito em 1977 por Ron Rivest, Adi Shamir e Leonard Adleman no MIT - daí as iniciais RSA.</p>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="about-title">Como Funciona a Criptografia RSA</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Geração de Chaves</h4>
+                    <p>Dois números primos grandes (p e q) são selecionados e multiplicados para criar um módulo (n).</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Chave Pública</h4>
+                    <p>Um expoente (e) é escolhido tal que 1 < e < φ(n) e e é coprimo com φ(n).</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Chave Privada</h4>
+                    <p>Calcula-se d como o inverso modular de e (mod φ(n)).</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="about-title">Equipe de Desenvolvimento</h2>
+            <div class="row">
+                <div class="col-md-4 team-member">
+                    <img src="dev1.jpg" alt="Desenvolvedor 1" class="member-photo">
+                    <h4>Adriele Santos</h4>
+                    <p>Auxiliar Back-end</p>
+                    <p>dricaadrielly41@gmail.com</p>
+                </div>
+                <div class="col-md-4 team-member">
+                    <img src="Assets/ArthurFoto.jpg" alt="Desenvolvedor 2" class="member-photo">
+                    <h4>Arthur de Freitas</h4>
+                    <p>Desenvolvedor Back-end</p>
+                    <p>arthuralfredo01@gmail.com</p>
+                </div>
+                <div class="col-md-4 team-member">
+                    <img src="Assets/IanFoto.jpeg" alt="Desenvolvedor 3" class="member-photo">
+                    <h4>Ian Tenório</h4>
+                    <p>Desenvolvedor Front-end / Designer</p>
+                    <p>iancarlosct@gmail.com</p>
+                </div>
+                <div class="col-md-4 team-member">
+                  <img src="Assets/NicolasFoto.jpg" alt="Desenvolvedor 4" class="member-photo">
+                  <h4>Nicolas Bittencourt</h4>
+                  <p>Desenvolvedor Back-end</p>
+                  <p>nicolas07.yan@gmail.com</p>
+              </div>
+              <div class="col-md-4 team-member">
+                  <img src="dev5.jpg" alt="Desenvolvedor 5" class="member-photo">
+                  <h4>Nicole Belfort</h4>
+                  <p>Designer</p>
+                  <p>estudosnicoleheloisa@gmail.com</p>
+              </div>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="about-title">Segurança e Privacidade</h2>
+            <p>Nosso sistema implementa:</p>
+            <ul>
+                <li>Geração segura de números primos</li>
+                <li>Processamento local - seus dados nunca saem do seu dispositivo</li>
+                <li>Open Source - código disponível para auditoria</li>
+                <li>Sem coleta de dados pessoais</li>
+            </ul>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="about-title">Contato</h2>
+            <p>Dúvidas ou sugestões? Entre em contato:</p>
+            <p>Email: <a href="https://workspace.google.com/intl/pt-BR/gmail/">iancarlosct@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/rsaencryptor" target="_blank">github.com/rsaencryptor</a></p>
+        </div>
+    </div>
+
+    <script src="Scripts/navbar.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
