@@ -1,8 +1,10 @@
 #ifndef KEY_H
 #define KEY_H
 
+#include <emscripten.h>
 #include "utils.h"
 
+EMSCRIPTEN_KEEPALIVE
 int generate_key(char str_p[], char str_q[], char str_e[]) {
   mpz_t p, q, e;
   // inicializa variáveis numericas
@@ -41,6 +43,7 @@ int generate_key(char str_p[], char str_q[], char str_e[]) {
   putc('\n', f);
   mpz_out_str(f, 10, e);
   mpz_clears(p, q, e, n, NULL);
+  fclose(f);
   return 0;
 }
 

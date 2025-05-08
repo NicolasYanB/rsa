@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(rsa)
+add_executable(RSA back/main.c)
+target_include_directories(RSA PUBLIC ${HOME}/opt/include)
+target_link_libraries(RSA ${HOME}/opt/lib/libgmp.a)
+target_link_options(RSA PRIVATE -sEXPORTED_RUNTIME_METHODS=['FS','cwrap'])
+target_link_options(RSA PRIVATE --pre-js=../pre.js)
