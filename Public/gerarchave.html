@@ -6,9 +6,8 @@
     <title>RSA Encryptor</title>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="Styles/bootstrap.min.css">
-    <script src="../build/RSA.js"></script>
 </head>
-<body>
+<body class="page-fade">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar">
         <div class="container-fluid">
@@ -39,6 +38,7 @@
         </div>
       </nav>
       
+      <!-- Seção de Parâmetros Criptográficos -->
 
     <div class="crypto-card">
         <div class="header">
@@ -61,14 +61,18 @@
                 <label for="e">Valor de <span class="prime-icon">e</span> (expoente):</label>
                 <input type="number" id="e" name="e" min="1" required placeholder="Digite o valor do expoente">
             </div>
-            
-            <button type="submit" class="btn-submit" id="gerar-chave-btn">Enviar</button>
-        </form>
-    </div>
 
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+
+        <div class="keys-output" id="keysOutput">
+          <!-- O resultado aparecerá aqui -->
+        </div>
+    </div>
+    
+    <script src="Scripts/chavegerada.js"></script>
     <script src="Scripts/navbar.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
-    <script src="Scripts/rsa.js"></script>
 
 </body>
 </html>

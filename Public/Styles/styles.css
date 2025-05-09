@@ -8,7 +8,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-
+    transition: background-color 0.5s ease, filter 0.5s ease;
 }
 
 @font-face {
@@ -50,6 +50,7 @@ body {
 }
 
 /* Efeito de Welcome */
+
 .welcome-overlay {
     position: fixed;
     top: 0;
@@ -88,51 +89,48 @@ body.loaded .welcome-overlay {
 }
 
 /* Estilo para o container do fantasma */
-        .ghost-container {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            z-index: 1000;
-            pointer-events: none; /* Permite clicar através do fantasma */
-            transition: transform 0.5s ease-out;
-        }
 
-        /* Estilo para a imagem do fantasma */
-        .ghost-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
-            animation: float 3s ease-in-out infinite;
-        }
+.ghost-container {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    pointer-events: none; 
+    transition: transform 0.5s ease-out;
+    }
 
-        /* Animação de flutuação */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+/* Estilo para a imagem do fantasma */
+.ghost-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    animation: float 3s ease-in-out infinite;
+    }
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
         }
+    }
 
 /*Página de Chaves*/
 
 .crypto-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
     max-width: 500px;
     transition: transform 0.3s ease;
-    margin-top: 50px; /* Ajuste este valor conforme necessário */
+    margin-top: 50px; 
     margin-left: auto;
     margin-right: auto;
-}
-
-.crypto-card:hover {
-    transform: translateY(-5px);
 }
 
 .header {
@@ -197,16 +195,31 @@ body.loaded .welcome-overlay {
     font-weight: bold;
 }
 
+.keys-output {    
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    display: none; 
+    animation: fadeIn 0.5s ease-out;
+    }
+        
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /*Página de Encriptar*/
 
 .encrypt-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
-    max-width: 600px; /* Um pouco mais largo para acomodar textos longos */
-    margin: 50px auto; /* Centraliza vertical e horizontalmente */
+    max-width: 600px; 
+    margin: 50px auto; 
 }
 
 .output-group {
@@ -230,10 +243,15 @@ body.loaded .welcome-overlay {
     border-radius: 5px;
 }
 
+.keys-output {
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
  /* Página de Desencriptar */
 
  .decrypt-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 30px;
@@ -276,14 +294,14 @@ body.loaded .welcome-overlay {
 /*Configs do NavBar*/
 
 #mainNavbar {
-    background-color: rgba(255, 255, 255, 0.1) !important; /* Fundo transparente */
-    backdrop-filter: blur(8px) !important; /* Efeito de borrado */
-    -webkit-backdrop-filter: blur(8px) !important; /* Para compatibilidade com Safari */
+    background-color: rgba(255, 255, 255, 0.1) !important; 
+    backdrop-filter: blur(8px) !important; 
+    -webkit-backdrop-filter: blur(8px) !important; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
 #mainNavbar .navbar-nav .nav-link {
-    color: white !important; /* Texto branco para os links */
+    color: white !important; 
     font-weight: 500;
     padding: 0.5rem 1rem;
     margin: 0 0.25rem;
@@ -308,7 +326,6 @@ body.loaded .welcome-overlay {
 
 /*Página Sobre*/
 
-/* Estilos específicos para a página Sobre */
 .about-card {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
@@ -386,6 +403,7 @@ body.loaded .welcome-overlay {
 }
 
 /* Estilos para links na página Sobre */
+
 .about-card a {
     color: #3498db;
     text-decoration: none;
@@ -398,6 +416,7 @@ body.loaded .welcome-overlay {
 }
 
 /* Responsividade */
+
 @media (max-width: 768px) {
     .about-card {
         padding: 20px;
@@ -422,6 +441,7 @@ body.loaded .welcome-overlay {
 }
 
 /* Ajuste para telas médias */
+
 @media (max-width: 991px) and (min-width: 768px) {
     .team-member {
         flex: 0 0 33.333%;
@@ -430,9 +450,51 @@ body.loaded .welcome-overlay {
 }
 
 /* Ajuste para telas pequenas */
+
 @media (max-width: 767px) {
     .team-member {
         flex: 0 0 50%;
         max-width: 50%;
     }
+}
+
+/*Page-Fade*/
+
+.page-fade {
+            animation: pageFadeIn 1s ease-out forwards;
+        }
+        
+@keyframes pageFadeIn {
+    from { 
+        background-color: rgba(0, 0, 0, 0.8);
+        filter: brightness(0.3);
+    }
+    to { 
+        background-color: transparent;
+        filter: brightness(1);
+    }    
+}
+
+@keyframes pageFadeIn {
+    0% {
+        background-color: rgba(0, 0, 0, 0.7);
+        filter: brightness(0.2) contrast(0.8);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, 0.3);
+        filter: brightness(0.6) contrast(0.9);
+    }
+    100% {
+        background-color: transparent;
+        filter: brightness(1) contrast(1);
+    }
+}
+
+.crypto-card, .navbar {
+    animation: contentFadeIn 1.8s ease-out forwards;
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
 }

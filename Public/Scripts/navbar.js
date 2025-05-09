@@ -1,3 +1,5 @@
+//Script para controlar o botão de esconder o NavBar na página "TODAS"
+
 document.getElementById('hideNavbarButton').addEventListener('click', function() {
     const navbar = document.getElementById('mainNavbar');
     navbar.style.display = 'none';
