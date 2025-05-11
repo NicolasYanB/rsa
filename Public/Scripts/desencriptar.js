@@ -1,7 +1,6 @@
 const desencriptarBtn = document.getElementById("desencriptar-btn");
 
 desencriptarBtn.onclick = (event) => {
-  event.preventDefault();
   const decode = Module.cwrap('decode', 'number', ['string', 'string', 'string', 'string']);
   const p = document.getElementById("decrypt-p").value;
   const q = document.getElementById("decrypt-q").value;

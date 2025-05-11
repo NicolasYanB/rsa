@@ -1,7 +1,6 @@
 const encodeBtn = document.getElementById("criptografar-btn");
 
 encodeBtn.onclick = (event) => {
-  event.preventDefault();
   const encode = Module.cwrap('encode', 'number', ['string', 'string', 'string', 'number']);
   const key = document.getElementById("publicKey").value.split(" ");
   const n = key[0];

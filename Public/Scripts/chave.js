@@ -1,7 +1,6 @@
 const generateKeyButton = document.getElementById("gerar-chave-btn");
 
 generateKeyButton.onclick = (event) => {
-  event.preventDefault()
   const generateKey = Module.cwrap('generate_key', 'number', ['string', 'string', 'string']);
 
   const p = document.getElementById("p").value;
