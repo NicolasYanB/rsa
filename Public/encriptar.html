@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="Styles/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/streamsaver@2.0.3/StreamSaver.min.js"></script>
+    <script src="../build/RSA.js"></script>
 </head>
 <body class="page-fade">
 
@@ -60,7 +62,7 @@
                 <textarea id="plainText" name="plainText" rows="4" required placeholder="Digite o texto que deseja criptografar" class="form-control"></textarea>
             </div>
             
-            <button type="submit" class="btn-submit">Criptografar</button>
+            <button type="submit" class="btn-submit" id="criptografar-btn">Criptografar</button>
             
             <div class="output-group">
                 <div class="output-label">Texto Criptografado:</div>
@@ -74,6 +76,8 @@
 
     <script src="Scripts/navbar.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/download.js"></script>
+    <script src="Scripts/encriptar.js"></script>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <emscripten.h>
 #include <stdio.h>
 #include <gmp.h>
 

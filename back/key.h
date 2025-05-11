@@ -1,7 +1,6 @@
 #ifndef KEY_H
 #define KEY_H
 
-#include <emscripten.h>
 #include "utils.h"
 
 EMSCRIPTEN_KEEPALIVE
