@@ -10,4 +10,7 @@ generateKeyButton.onclick = (event) => {
   
   const f = Module.FS.readFile('chave_publica.txt', {encoding: 'utf8'});
   download(f, 'chave_publica.txt');
+  const keyOutput = document.getElementById("keysOutput");
+  const keys = f.split('\n'); 
+  keyOutput.innerText = `n: ${keys[0]}\ne: ${keys[1]}`;
 };
