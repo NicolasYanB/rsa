@@ -24,7 +24,7 @@ int decode(char text[], char str_p[], char str_q[], char str_e[]) {
   mpz_invert(d, e, pq_);
   // código para desencriptar
   FILE* f = fopen("decode.txt", "w");
-  char *str_c = strtok(text, "-");
+  char *str_c = strtok(text, " ");
   char decoded_char;
   mpz_t c, res;
   mpz_init(res);
@@ -33,7 +33,7 @@ int decode(char text[], char str_p[], char str_q[], char str_e[]) {
     mpz_powm(res, c, d, n);
     decoded_char = mpz_get_ui(res);
     putc(decoded_char, f);
-    str_c = strtok(NULL, "-");
+    str_c = strtok(NULL, " ");
     if (str_c != NULL) mpz_set_str(c, str_c, 10);
   }
   fclose(f);

@@ -1,4 +1,5 @@
 const desencriptarBtn = document.getElementById("desencriptar-btn");
+const textArea = document.getElementById("encryptedText");
 let text;
 const fileInput = document.getElementById("arquivo-desencriptar");
 if (fileInput.files.length > 0) {
@@ -11,6 +12,9 @@ fileInput.onchange = (event) => {
     text = txt.slice(0, -1);
   });
 }
+textArea.onchange = (event) => {
+  text = event.target.value;
+}
 
 desencriptarBtn.onclick = (_) => {
   const decode = Module.cwrap('decode', 'number', ['string', 'string', 'string', 'string']);
@@ -20,14 +24,14 @@ desencriptarBtn.onclick = (_) => {
   if (!text) {
     text = document.getElementById("encryptedText").value;
   }
-  const splittedText = text.split('-');
+  const splittedText = text.split(' ');
   const size = splittedText.length;
   const output = document.getElementById("decryptedOutput");
   if (size >= 10000) {
     const bound = Math.ceil(Math.sqrt(size));
     let decodedText = '';
     for (let i = 0; i <= bound+1; i++) {
-      const chunk = splittedText.slice(i*bound, (i+1)*bound).join('-');
+      const chunk = splittedText.slice(i*bound, (i+1)*bound).join(' ');
       decode(chunk, p, q, e);
       const f = Module.FS.readFile('decode.txt', {encoding: 'utf8'});
       decodedText += f;

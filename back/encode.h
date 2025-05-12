@@ -17,6 +17,13 @@ int encode(char text[], char str_n[], char str_e[], long long size) {
   mpz_init(c);
   mpz_init(enc);
   for (long long i = 0; i < size; i++) {
+    if (text[i] == 10) {
+      mpz_set_ui(c, text[i]);
+      binpow_mod(c, e, n, enc);
+      mpz_out_str(f, 10, enc);
+      putc(' ', f);
+      continue;
+    }
     if (text[i] < 32 || text[i] > 126) {
       continue;
     }
@@ -28,9 +35,7 @@ int encode(char text[], char str_n[], char str_e[], long long size) {
       mpz_set_str(enc, cache[text[i]-32], 10);
     }
     mpz_out_str(f, 10, enc);
-    if (i < size-1) {
-      putc('-', f);
-    }
+    putc(' ', f);
   }
   fclose(f);
   mpz_clears(n, e, c, enc, NULL);

@@ -1,4 +1,5 @@
 const encodeBtn = document.getElementById("criptografar-btn");
+const plainText = document.getElementById("plainText");
 let text;
 const fileInput = document.getElementById("arquivo-encriptar");
 if (fileInput.files.length > 0) {
@@ -10,6 +11,9 @@ fileInput.onchange = (event) => {
   event.target.files.item(0).text().then((txt) => {
     text = txt.slice(0, -1);
   });
+}
+plainText.onchange = (event) => {
+  text = event.target.value;
 }
 
 encodeBtn.onclick = (_) => {
@@ -51,7 +55,6 @@ encodeBtn.onclick = (_) => {
     });
     // download_stream(encoded, 'encode.txt');
   } else {
-    console.log(text);
     encode(text, n, e, size);
     const f = Module.FS.readFile('encode.txt', {encoding: 'utf8'});
     download(f, 'encode.txt');
