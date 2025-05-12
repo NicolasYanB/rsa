@@ -37,7 +37,7 @@ desencriptarBtn.onclick = (_) => {
       decodedText += f;
       console.log(`${i}/${bound+1}`);
     }
-    encryptedOutput.innerHTML = "O texto é muito grande para ser apresentado."
+    output.innerHTML = "O texto é muito grande para ser apresentado."
     download(decodedText, 'decoded.txt');
   } else {
     decode(text, p, q, e);
