@@ -27,16 +27,17 @@ encodeBtn.onclick = (_) => {
   const size = text.length;
   console.log('Encriptação iniciada!');
   const encryptedOutput = document.getElementById("encryptedOutput");
+  text = text.replace(/[^\x00-\x7F]/g, "");
   if (size >= 10000) {
     const bound = Math.ceil(Math.sqrt(size));
-    const encoder = new TextEncoder()
+    const encoder = new TextEncoder();
     let i = 0
     const encodeStream = new ReadableStream(
       {
         pull(controller) {
           if (i <= bound+1) {
-            const textPart = text.slice(i*bound, (i+1)*bound);
-            encode(textPart, n, e, bound);
+            let textPart = text.slice(i*bound, (i+1)*bound);
+            encode(textPart, n, e, textPart.length);
             const f = Module.FS.readFile('encode.txt', {encoding: 'utf8'});
             controller.enqueue(encoder.encode(f));
             console.log(`${i}/${bound+1}`);
